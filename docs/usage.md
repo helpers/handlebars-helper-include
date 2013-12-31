@@ -9,3 +9,11 @@ Optionally pass in a context as the second parameter:
 ```html
 {{partial 'foo' bar}}
 ```
+
+### Wildcard patterns
+
+Globbing patterns may also be used:
+
+```html
+{{partial 'chapter-*' bar}}
+```

@@ -55,6 +55,14 @@ Optionally pass in a context as the second parameter:
 {{partial 'foo' bar}}
 ```
 
+#### Wildcard patterns
+
+Globbing patterns may also be used:
+
+```html
+{{partial 'chapter-*' bar}}
+```
+
 
 ## Context
 Like Assemble itself, this helper attempts to automatically determine the correct context to use based on the data supplied, but a context can be explicitly passed as a second parameter.
@@ -88,6 +96,7 @@ Besides the [handlebars-helpers](https://github.com/assemble/handlebars-helpers)
 + [handlebars-helper-moment](https://github.com/helpers/handlebars-helper-moment): {{moment}} handlebars helper. Combines the powers of Assemble, Handlebars.js and Moment.js into a great helper to master time. 
 + [handlebars-helper-not](https://github.com/helpers/handlebars-helper-not): {{not}} handlebars helper. Conditionally render a block if the condition is false. This block helper is really just a semantic alternative to {{isnt}} 
 + [handlebars-helper-paginate](https://github.com/helpers/handlebars-helper-paginate): {{paginate}} handlebars helper. Made for Assemble, the static site generator for Node.js, Grunt.js and Yeoman. 
++ [handlebars-helper-partial](https://github.com/helpers/handlebars-helper-partial): Handlebars helper, alternative to built-in partials. Like Assemble itself, this helper will automatically determine the correct context to use, or a context may be explicitly passed in as a second parameter. 
 + [handlebars-helper-pkg](https://github.com/helpers/handlebars-helper-pkg): {{pkg}} handlebars helper, for retrieving a value from your project's package.json 
 + [handlebars-helper-post](https://github.com/helpers/handlebars-helper-post): {{post}} handlebars helper, for including a post, or a list of posts. 
 + [handlebars-helper-prettify](https://github.com/helpers/handlebars-helper-prettify): {{prettify}} handlebars helper, for formatting ("beautifying") HTML, CSS and JavaScript.      
