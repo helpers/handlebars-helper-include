@@ -45,7 +45,6 @@ module.exports.register = function (Handlebars, options, params) {
       filepaths = assemble.partials.filter(minimatch.filter(name));
     }
 
-    //var partials = grunt.file.expand(fullpath).map(function(filepath) {
     var partials = filepaths.map(function(filepath) {
       name = path.basename(filepath, path.extname(filepath));
 
