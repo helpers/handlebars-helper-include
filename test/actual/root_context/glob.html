@@ -1,0 +1,32 @@
+<p><!-- test/fixtures/includes/partial-data-file.hbs --></p>
+<article id="include-data-file">
+  <div class="title">
+    This title is from include-DATA-FILE.json
+  </div>
+  <p class="description"> This description is from include-DATA-FILE.json </p>
+</article>
+<!-- test/fixtures/includes/partial-yfm-lodash.hbs -->
+<article id="include-yfm-lodash">
+  <div class="title">
+    Assemble =&gt; Assemble
+  </div>
+  <p class="description"> Static site generator for Grunt.js and Yeoman. Assemble makes it dead simple to build modular sites, blogs, gh-pages, components and documentation from reusable templates and data.
+ </p>
+  <p class="description"> Static site generator for Grunt.js and Yeoman. Assemble makes it dead simple to build modular sites, blogs, gh-pages, components and documentation from reusable templates and data.
+ </p>
+</article>
+
+<p>Note that the YAML front matter is &quot;borrowing&quot; data from the <code>site</code> object, which is defined in the Grunt config.</p>
+<p>So in this example, <code>{{title}}</code> will yield the same result as <code>{{site.title}}</code>, and <code>{{description}}</code> will
+yield the same result as <code>{{site.description}}</code>
+<!-- test/fixtures/includes/partial-yfm.hbs --></p>
+<article id="include-yfm">
+  <div class="title">
+    This title is from the include YFM (include-yfm.hbs)
+  </div>
+  <p class="description"> This description is from PAGE YFM (multiple.hbs) </p>
+</article>
+
+<p>In this example, the context for <code>title</code> should be from the YAML front matter of <code>include-yfm.hbs</code>,
+but since no <code>description</code> property exists in the YFM of the include, the context for <code>description</code>
+should come from the inheriting page.</p>
