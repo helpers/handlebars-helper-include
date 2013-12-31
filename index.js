@@ -49,11 +49,6 @@ module.exports.register = function (Handlebars, options, params) {
     var partials = filepaths.map(function(filepath) {
       name = path.basename(filepath, path.extname(filepath));
 
-      // Filter out the first partial that matches each given pattern
-      // var content = _.first(_.filter(assemble.partials, function(fp) {
-      //   return path.basename(fp, path.extname(fp)) === name;
-      // }));
-
       // Process context, using YAML front-matter, grunt config and Assemble
       // options.data
       var pageObj = yfm.extract(filepath) || {};
