@@ -34,14 +34,25 @@ module.exports.register = function (Handlebars, options, params) {
     if(!Array.isArray(assemble.partials)) {
       assemble.partials = [assemble.partials];
     }
-    var fullpath = [path.join(path.dirname(assemble.partials[0]), name) + '*'];
-    var partials = grunt.file.expand(fullpath).map(function(filepath) {
+
+    // first try to match on the full name in the assemble.partials array
+    var filepaths = _.filter(assemble.partials, function(filepath) {
+      return path.basename(filepath, path.extname(filepath)) === name;
+    });
+
+    // if no matches, then try minimatch
+    if (!filepaths || filepaths.length <= 0) {
+      filepaths = assemble.partials.filter(minimatch.filter(name));
+    }
+
+    //var partials = grunt.file.expand(fullpath).map(function(filepath) {
+    var partials = filepaths.map(function(filepath) {
       name = path.basename(filepath, path.extname(filepath));
 
       // Filter out the first partial that matches each given pattern
-      var content = _.first(_.filter(assemble.partials, function(fp) {
-        return path.basename(fp, path.extname(fp)) === name;
-      }));
+      // var content = _.first(_.filter(assemble.partials, function(fp) {
+      //   return path.basename(fp, path.extname(fp)) === name;
+      // }));
 
       // Process context, using YAML front-matter, grunt config and Assemble
       // options.data
@@ -61,18 +72,18 @@ module.exports.register = function (Handlebars, options, params) {
       // `grunt.config.data` = Data from grunt.config.data
       //                       (e.g. pkg: grunt.file.readJSON('package.json'))
 
-      context = _.extend({}, grunt.config.data, opts, this, opts.data[name], metadata, context);
-      context = grunt.config.process(context);
+      var ctx = _.extend({}, grunt.config.data, opts, this, opts.data[name], metadata, context);
+      ctx = grunt.config.process(ctx);
 
       var template = Handlebars.partials[name];
       var fn = Handlebars.compile(template);
 
-      var output = fn(context).replace(/^\s+/, '');
+      var output = fn(ctx).replace(/^\s+/, '');
 
       // Prepend output with the filepath to the original partial
       var include = opts.include || opts.data.include || {};
       if(include.origin === true) {
-        output = '<!-- ' + content + ' -->\n' + output;
+        output = '<!-- ' + filepath + ' -->\n' + output;
       }
 
       return output;
