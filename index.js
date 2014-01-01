@@ -21,13 +21,13 @@ module.exports.register = function (Handlebars, options, params) {
   var opts = options || {};
 
   /**
-   * {{partial}}
+   * {{include}}
    * Alternative to {{> partial }}
    *
    * @param  {String} name    The name of the partial to use
    * @param  {Object} context The context to pass to the partial
    * @return {String}         Returns compiled HTML
-   * @xample: {{partial 'foo' bar}}
+   * @xample: {{include 'foo' bar}}
    */
   Handlebars.registerHelper('include', function(name, context) {
 
@@ -83,6 +83,6 @@ module.exports.register = function (Handlebars, options, params) {
       return output;
     }).join('\n');
 
-    return new Handlebars.SafeString(partials);
+    return new Handlebars.SafeString(output);
   });
 };
