@@ -45,7 +45,7 @@ module.exports.register = function (Handlebars, options, params) {
       filepaths = assemble.partials.filter(minimatch.filter(name));
     }
 
-    var partials = filepaths.map(function(filepath) {
+    var results = filepaths.map(function(filepath) {
       name = path.basename(filepath, path.extname(filepath));
 
       // Process context, using YAML front-matter, grunt config and Assemble
@@ -83,6 +83,6 @@ module.exports.register = function (Handlebars, options, params) {
       return output;
     }).join('\n');
 
-    return new Handlebars.SafeString(output);
+    return new Handlebars.SafeString(results);
   });
 };
