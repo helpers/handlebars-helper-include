@@ -46,13 +46,13 @@ grunt.initConfig({
 With the helper registered, you may now begin using it in your templates:
 
 ```html
-{{partial 'foo'}}
+{{include 'foo'}}
 ```
 
 Optionally pass in a context as the second parameter:
 
 ```html
-{{partial 'foo' bar}}
+{{include 'foo' bar}}
 ```
 
 #### Wildcard patterns
@@ -60,7 +60,7 @@ Optionally pass in a context as the second parameter:
 Globbing patterns may also be used:
 
 ```html
-{{partial 'chapter-*' bar}}
+{{include 'chapter-*' bar}}
 ```
 
 
