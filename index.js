@@ -55,13 +55,11 @@ module.exports.register = function (Handlebars, options, params) {
 
       // `context`           = the given context (second parameter)
       // `metadata`          = YAML front matter of the partial
-      // `opts.data[name]`   = JSON/YAML data file defined in Assemble
-      //                       options.data with a basename
-      //                       matching the name of the partial, e.g
-      //                       {{partial 'foo'}} => foo.json
-      // `this`              = Typically either YAML front matter of
-      //                       the "inheriting" page, or a block
-      //                       expression wrapping the helper
+      // `opts.data[name]`   = JSON/YAML data file defined in Assemble options.data
+      //                       with a basename matching the name of the partial, e.g
+      //                       {{include 'foo'}} => foo.json
+      // `this`              = Typically either YAML front matter of the "inheriting" page,
+      //                       layout, block expression, or "parent" helper wrapping this helper
       // `opts`              = Custom properties defined in Assemble options
       // `grunt.config.data` = Data from grunt.config.data
       //                       (e.g. pkg: grunt.file.readJSON('package.json'))
