@@ -1,7 +1,7 @@
 {
   "name": "handlebars-helper-include",
   "description": "Handlebars helper, alternative to built-in partials. Similar to handlebars-helper-partial, but this helper will allow wildcard (glob) patterns. Like Assemble itself, this helper will automatically determine the correct context to use, or a context may be explicitly passed in as a second parameter.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/helpers/handlebars-helper-include",
   "author": {
     "name": "Jon Schlinkert",
@@ -22,7 +22,8 @@
   ],
   "main": "./index.js",
   "dependencies": {
-    "assemble-yaml": "~0.2.1",
+    "fs-utils": "~0.1.11",
+    "gray-matter": "~0.2.3",
     "lodash": "~2.4.0",
     "minimatch": "~0.2.14"
   },
@@ -33,7 +34,8 @@
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-mocha-test": "~0.8.1",
     "grunt-readme": "~0.4.5",
-    "grunt-repos": "~0.1.2"
+    "grunt-repos": "~0.1.2",
+    "grunt-sync-pkg": "~0.1.2"
   },
   "keywords": [
     "assemble",

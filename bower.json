@@ -1,0 +1,7 @@
+{
+  "name": "handlebars-helper-include",
+  "version": "0.1.2",
+  "main": [
+    "./index.js"
+  ]
+}

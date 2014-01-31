@@ -94,12 +94,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-readme');
   grunt.loadNpmTasks('grunt-repos');
+  grunt.loadNpmTasks('grunt-sync-pkg');
   grunt.loadNpmTasks('assemble');
 
   // Docs
-  grunt.registerTask('docs', ['repos', 'readme']);
+  grunt.registerTask('docs', ['repos', 'readme', 'sync']);
 
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint', 'clean', 'assemble', 'readme']);
+  grunt.registerTask('default', ['jshint', 'clean', 'assemble', 'docs']);
 
 };

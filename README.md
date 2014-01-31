@@ -73,7 +73,7 @@ This is how data is merged into the context, in order of precedence:
 1. **given context**     : a context explicitly passed as a second parameter, e.g. `{{partial 'foo' bar}}`, will win over other contexts.
 1. **YAML front matter** : YAML front matter of the partial
 1. **opts.data[name]**   : JSON/YAML data file defined in Assemble `options.data` with a basename matching the name of the partial, e.g `{{partial 'foo'}}` matches `foo.json`
-1. **this**              : A context of `this` usually means either YAML front matter of the "inheriting" page or a block expression wrapping the helper
+1. **this**              : A context of `this` likely means either YAML front matter of the "inheriting" page, the inheriting layout, block expression, or "parent" helper wrapping this helper
 1. **Assemble options**  : Custom properties defined in Assemble options
 1. **grunt.config.data** : Data from `grunt.config.data` (e.g. `pkg: grunt.file.readJSON('package.json'`))
 
@@ -84,15 +84,19 @@ Besides the [handlebars-helpers](https://github.com/assemble/handlebars-helpers)
 + [handlebars-helper-aggregate](https://github.com/helpers/handlebars-helper-aggregate): {{aggregate}} handlebars helper. inlines content from multiple files optionally using wildcard (globbing/minimatch) patterns. uses YAML front matter as context for each file. optionally pass in a sorting function. 
 + [handlebars-helper-autolink](https://github.com/helpers/handlebars-helper-autolink): {{autolink}} handlebars helper. Generate relative links from the "current page" to other dest pages. 
 + [handlebars-helper-br](https://github.com/helpers/handlebars-helper-br): {{br}} Handlebars helper. Adds `<br>` tags to generated HTML. Great for prototyping. 
-+ [handlebars-helper-compose](https://github.com/helpers/handlebars-helper-compose): {{compose}} handlebars helper. Similar to {{aggregate}}, but this is a block expression helper that inlines content from multiple files differently, extracting YAML front matter to pass to context for each file. Optionally use wildcard (globbing/minimatch) patterns. Accepts compare function as 3rd parameter for sorting inlined files. 
++ [handlebars-helper-compose](https://github.com/helpers/handlebars-helper-compose): {{compose}} handlebars helper. Similar to {{aggregate}}, but this is a block helper that extends the inner block's content with content from "external" files, while also extending the context with YAML front matter from those files. You may also optionally use wildcard (glob/minimatch) patterns.  
 + [handlebars-helper-condense](https://github.com/helpers/handlebars-helper-condense): Remove extra newlines from HTML content. 
++ [handlebars-helper-datetime](https://github.com/helpers/handlebars-helper-datetime): Handlebars helper for adding RFC-822 formatted datetimes to XML feeds 
 + [handlebars-helper-disqus](https://github.com/helpers/handlebars-helper-disqus): {{disqus}} Handlebars helper. Simplifies adding [Disqus](https://disqus.com/) comments to your site. 
 + [handlebars-helper-eachitems](https://github.com/helpers/handlebars-helper-eachitems): {{eachItems}} handlebars helper. 
++ [handlebars-helper-feed](https://github.com/helpers/handlebars-helper-feed): Handlebars helper for generating entries for RSS or atom feeds. 
 + [handlebars-helper-ghbtns](https://github.com/helpers/handlebars-helper-ghbtns): {{ghbtn}} handlebars helper. Add github buttons (http://ghbtns.com) to your site. 
++ [handlebars-helper-include](https://github.com/helpers/handlebars-helper-include): Handlebars helper, alternative to built-in partials. Similar to handlebars-helper-partial, but this helper will allow wildcard (glob) patterns. Like Assemble itself, this helper will automatically determine the correct context to use, or a context may be explicitly passed in as a second parameter. 
 + [handlebars-helper-isActive](https://github.com/helpers/handlebars-helper-isActive): {{isactive}} handlebars helper. Adds an 'active' class to the 'current page'. Class can be customized. 
 + [handlebars-helper-jade](https://github.com/helpers/handlebars-helper-jade): {{jade}} handlebars helper, for converting basic Jade templates to HTML.  
 + [handlebars-helper-less](https://github.com/helpers/handlebars-helper-less): {{less}} handlebars helper. This helper allows you to use LESS inside style tags in your HTML. By default, the resulting CSS will be rendered inside the `<style>...</style>` tags of the rendered HTML, but you may alternatively define a destination path using the `dest` hash option of the helper. 
 + [handlebars-helper-lorem](https://github.com/helpers/handlebars-helper-lorem): {{lorem}} handlebars helper, for generating lorem lorem placeholder text. 
++ [handlebars-helper-md](https://github.com/helpers/handlebars-helper-md): A new and improved {{md}] helper! Convert markdown to HTML. Use wildcard (glob) patterns for files. Like Assemble itself, this helper will automatically determine the correct context to use, or a context may be explicitly passed in as a second parameter. 
 + [handlebars-helper-minify](https://github.com/helpers/handlebars-helper-minify): {{minify}} handlebars helper, for minification of HTML with html-minifier. 
 + [handlebars-helper-moment](https://github.com/helpers/handlebars-helper-moment): {{moment}} handlebars helper. Combines the powers of Assemble, Handlebars.js and Moment.js into a great helper to master time. 
 + [handlebars-helper-not](https://github.com/helpers/handlebars-helper-not): {{not}} handlebars helper. Conditionally render a block if the condition is false. This block helper is really just a semantic alternative to {{isnt}} 
@@ -108,6 +112,7 @@ Besides the [handlebars-helpers](https://github.com/assemble/handlebars-helpers)
 + [handlebars-helper-track](https://github.com/helpers/handlebars-helper-track): {{track}} handlebars helper. Simplify the process of adding Google analytics tracking codes to your web projects. 
 + [handlebars-helper-twitter](https://github.com/helpers/handlebars-helper-twitter): Add {{tweet}} and {{follow}} buttons using handlebars helpers. 
 + [handlebars-helper-uml](https://github.com/helpers/handlebars-helper-uml): Embed UML diagrams in your handlebars template using www.websequencediagrams.com 
++ [handlebars-helpers-yfm](https://github.com/helpers/handlebars-helpers-yfm): Helpers and examples for extracting, parsing, and passing context from YAML front matter into your templates. Useful if you need custom programming beyond what Assemble offers by default. 
 
 Visit [assemble.io/plugins](http:/assemble.io/plugins/) for more information about [Assemble](http:/assemble.io/) plugins.
 
@@ -137,7 +142,7 @@ Released under the MIT license
 
 ***
 
-_This file was generated by [grunt-readme](https://github.com/assemble/grunt-readme) on Sunday, January 12, 2014._
+_This file was generated by [grunt-readme](https://github.com/assemble/grunt-readme) on Friday, January 31, 2014._
 
 [grunt]: http://gruntjs.com/
 [Getting Started]: https://github.com/gruntjs/grunt/blob/devel/docs/getting_started.md
