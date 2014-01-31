@@ -1,7 +1,7 @@
 {
   "name": "handlebars-helper-include",
   "description": "Handlebars helper, alternative to built-in partials. Similar to handlebars-helper-partial, but this helper will allow wildcard (glob) patterns. Like Assemble itself, this helper will automatically determine the correct context to use, or a context may be explicitly passed in as a second parameter.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "homepage": "https://github.com/helpers/handlebars-helper-include",
   "author": {
     "name": "Jon Schlinkert",
