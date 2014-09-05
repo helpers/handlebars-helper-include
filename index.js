@@ -62,7 +62,7 @@ module.exports.register = function (Handlebars, options, params) {
       // `opts`              = Custom properties defined in Assemble options
       // `grunt.config.data` = Data from grunt.config.data
       //                       (e.g. pkg: grunt.file.readJSON('package.json'))
-      console.log(metadata);
+      grunt.verbose.write(metadata);
       var ctx = _.extend({}, grunt.config.data, opts, this, opts.data[name], metadata, context);
       ctx = grunt.config.process(ctx);
 
