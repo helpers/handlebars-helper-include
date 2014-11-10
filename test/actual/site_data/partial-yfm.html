@@ -1,0 +1,12 @@
+
+<!-- test/fixtures/includes/include-yfm.hbs -->
+<article id="include-yfm">
+  <div class="title">
+    This title is from the include YFM (include-yfm.hbs)
+  </div>
+  <p class="description"> This description is from the PAGE YFM </p>
+</article>
+
+In this example, the context for `title` should be from the YAML front matter of `include-yfm.hbs`,
+but since no `description` property exists in the YFM of the include, the context for `description`
+should come from the inheriting page.

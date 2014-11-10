@@ -1,0 +1,16 @@
+
+<!-- test/fixtures/includes/include-yfm-lodash.hbs -->
+<article id="include-yfm-lodash">
+  <div class="title">
+    Assemble => Assemble
+  </div>
+  <p class="description"> Static site generator for Grunt.js and Yeoman. Assemble makes it dead simple to build modular sites, blogs, gh-pages, components and documentation from reusable templates and data.
+ </p>
+  <p class="description"> Static site generator for Grunt.js and Yeoman. Assemble makes it dead simple to build modular sites, blogs, gh-pages, components and documentation from reusable templates and data.
+ </p>
+</article>
+
+Note that the YAML front matter is "borrowing" data from the `site` object, which is defined in the Grunt config.
+
+So in this example, `{{title}}` will yield the same result as `{{site.title}}`, and `{{description}}` will
+yield the same result as `{{site.description}}`

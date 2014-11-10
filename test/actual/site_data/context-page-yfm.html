@@ -1,0 +1,51 @@
+
+
+Context is <code>page</code>, include does not have front-matter.
+
+<!-- test/fixtures/includes/snippet.hbs -->
+<article id="site-context">
+  <div class="title">
+    This title is from the PAGE YFM (page-yfm.hbs)
+  </div>
+  <p class="description"> This description is from the PAGE YFM </p>
+</article>
+
+
+Context is <code>this</code>, include does not have front-matter.
+
+<!-- test/fixtures/includes/snippet.hbs -->
+<article id="site-context">
+  <div class="title">
+    This title is from the PAGE YFM (page-yfm.hbs)
+  </div>
+  <p class="description"> This description is from the PAGE YFM </p>
+</article>
+
+
+Context is <code>page</code>, include has front-matter.
+
+<!-- test/fixtures/includes/snippet-yfm.hbs -->
+<article id="include-yfm">
+  <div class="title">
+    This title is from the PAGE YFM (page-yfm.hbs)
+  </div>
+  <p class="description"> This description is from the PAGE YFM </p>
+</article>
+
+In this example, the context for `title` should be from the YAML front matter of `include-yfm.hbs`,
+but since no `description` property exists in the YFM of the include, the context for `description`
+should come from the inheriting page.
+
+Context is <code>this</code>, include has front-matter.
+
+<!-- test/fixtures/includes/snippet-yfm.hbs -->
+<article id="include-yfm">
+  <div class="title">
+    This title is from the PAGE YFM (page-yfm.hbs)
+  </div>
+  <p class="description"> This description is from the PAGE YFM </p>
+</article>
+
+In this example, the context for `title` should be from the YAML front matter of `include-yfm.hbs`,
+but since no `description` property exists in the YFM of the include, the context for `description`
+should come from the inheriting page.
