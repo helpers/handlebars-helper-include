@@ -46,7 +46,7 @@ module.exports.register = function (Handlebars, options, params) {
       return '';
     }
 
-    var stack = [];
+    var stack = '';
 
     while (i < len) {
       var name = matches[i++];
@@ -64,11 +64,9 @@ module.exports.register = function (Handlebars, options, params) {
       //                       (e.g. pkg: grunt.file.readJSON('package.json'))
 
       var context = {};
-
-      extend(context, dataFiles);
-      console.log(context)
-      extend(context, opts);
       extend(context, this);
+      extend(context, opts);
+      extend(context, dataFiles);
       extend(context, opts.data[name]);
       extend(context, include.data);
       extend(context, locals);
@@ -76,7 +74,7 @@ module.exports.register = function (Handlebars, options, params) {
       context = grunt.config.process(context);
 
       var fn = Handlebars.compile(include.content);
-      var res = fn(context).replace(/^\s+/, '');
+      var res = fn(context);
 
       // Prepend result with the filepath to the original include
       var includeOpts = opts.include || opts.data.include || {};
@@ -84,8 +82,9 @@ module.exports.register = function (Handlebars, options, params) {
         res = '<!-- ' + include.path + ' -->\n' + res;
       }
 
-      stack.push(res);
+      stack += res;
     }
-    return new Handlebars.SafeString(stack.join('\n'));
+
+    return new Handlebars.SafeString(stack.replace(/^\s+|\s+$/g, ''));
   });
 };

@@ -1,52 +1,71 @@
----
-title: This title is from PAGE YFM (multiple.hbs)
-description: This description is from PAGE YFM (multiple.hbs)
-lead: This lead is from PAGE YFM (multiple.hbs)
-quux: This property is from PAGE YFM (multiple.hbs)
----
 <h2><code>explicit</code> context</h2>
-Should be from `explicit.json`, then the YFM of the page, then the options, then the root.
+Should be from <code>explicit.json</code>
 {{include 'snippet' explicit}}
 
 
-<h2><code>page</code> context</h2>
-Should be from the YFM of the page, then the options, then the root.
+<h2><code>root</code> context</h2>
+Should be from the root context. (this page has no front matter, so `page` falls back on the root context)
 {{include 'snippet' page}}
 
 
-<h2><code>this</code> context</h2>
-Should be from the YFM of the page, then the options, then the root.
+<h2><code>options</code> context</h2>
+Should be from the options. (this page has no front matter, so `this` falls back on the `options` context)
 {{include 'snippet' this}}
 
 
-<h2><code>data</code> context</h2>
-Should be from the YFM of the include, <code>snippet</code>, first; then fallback on <code>snippet.json</code>, then the page, then the options, then the root.
-{{include 'snippet' data}}
+<br>
+<br>
+<br>
+<br>
 
 
 <h2><code>snippet</code> context</h2>
-Should be from the YFM of the include, <code>snippet</code>, first; then fallback on <code>snippet.json</code>, then the page, then the options, then the root.
-{{include 'snippet' snippet}}
+Should be from the YFM of the include, <code>snippet</code>
+{{include 'snippet-yfm'}}
 
 
-<h2>empty context</h2>
-Should be from the YFM of the include, <code>snippet</code>, first; then fallback on <code>snippet.json</code>, then the page, then the options, then the root.
-{{include 'snippet'}}
+
+<h2><code>snippet (lodash)</code> context</h2>
+Should be resolved from the lodash templates in the YFM of the include, <code>snippet</code>
+{{include 'snippet-yfm-lodash'}}
 
 
-<h2><code>bar</code> context (block)</h2>
-Should be from the YFM of the include, <code>snippet</code>, first; then fallback on <code>snippet.json</code>, then fallback on <code>bar.json</code>, then the page, then the options, then the root.
+<br>
+<br>
+<br>
+<br>
+
+
+
+<h2><code>include yfm</code> context</h2>
+Should be from the YFM of the include
+{{include 'snippet-yfm' data}}
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+<h2>data file context</h2>
+Should be from the <code>bar.json</code> data file
 
 {{#bar}}
-  {{include 'snippet'}}
+  {{include 'snippet' this}}
 {{/bar}}
 
-<h2><code>parent</code> context (block)</h2>
-Should use the context from the page.
+
+<h2>parent context</h2>
+Should be from the options.
 
 {{#bar}}
   {{include 'snippet' ../this}}
 {{/bar}}
+
+
+<h2>parent context</h2>
+Should be from the root context.
 
 {{#bar}}
   {{include 'snippet' ../page}}

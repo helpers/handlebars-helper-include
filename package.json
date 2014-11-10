@@ -1,31 +1,28 @@
 {
-  "name": "include",
+  "name": "handlebars-helper-include",
   "description": "Handlebars helper for using includes.",
   "version": "0.1.0",
-  "homepage": "https://github.com/jonschlinkert/include",
+  "homepage": "https://github.com/helpers/handlebars-helper-include",
   "author": {
     "name": "Jon Schlinkert",
     "url": "https://github.com/jonschlinkert"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jonschlinkert/include.git"
+    "url": "git://github.com/helpers/handlebars-helper-include.git"
   },
   "bugs": {
-    "url": "https://github.com/jonschlinkert/include/issues"
+    "url": "https://github.com/helpers/handlebars-helper-include/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/jonschlinkert/include/blob/master/LICENSE-MIT"
+      "url": "https://github.com/helpers/handlebars-helper-include/blob/master/LICENSE-MIT"
     }
   ],
   "main": "index.js",
   "engines": {
     "node": ">=0.10.0"
-  },
-  "scripts": {
-    "test": "mocha -R spec"
   },
   "devDependencies": {
     "assemble": "^0.4.42",
@@ -36,13 +33,12 @@
     "grunt-contrib-jshint": "^0.10.0"
   },
   "keywords": [
-    "templates",
     "assemble",
-    "handlebars helper",
     "handlebars",
     "helper",
     "include",
     "partial",
+    "templates",
     "view"
   ],
   "dependencies": {

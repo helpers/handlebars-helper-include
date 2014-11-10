@@ -28,6 +28,7 @@ module.exports = function(grunt) {
     assemble: {
       options: {
         flatten: true,
+        site: '<%= site %>',
         subtitle: 'This subtitle is a custom property in the Assemble options',
 
         // Ensure that assets path calculates properly
@@ -36,26 +37,14 @@ module.exports = function(grunt) {
         includes: ['test/fixtures/includes/*.hbs'],
         helpers: ['index.js'],
       },
-      site_data: {
-        options: {
-          site: '<%= site %>'
-        },
-        files: {
-          'test/actual/site_data/': ['test/fixtures/*.{hbs,md}']
-        }
-      },
-      options_context: {
+
+      tests: {
         options: {
           title: 'this title is from the options.',
           description: 'this description is from the options.'
         },
         files: {
-          'test/actual/options_data/': ['test/fixtures/*.{hbs,md}']
-        }
-      },
-      root_context: {
-        files: {
-          'test/actual/root_context/': ['test/fixtures/*.{hbs,md}']
+          'test/actual/options_data/': ['test/fixtures/*.hbs']
         }
       }
     },

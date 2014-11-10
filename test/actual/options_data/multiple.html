@@ -1,0 +1,134 @@
+<h2><code>explicit</code> context</h2>
+Should be from <code>explicit.json</code>
+<!-- test/fixtures/includes/snippet.hbs -->
+<article id="site-context">
+  <div class="title">
+    This title is from EXPLICIT.json
+  </div>
+  <p class="description"> This description is from EXPLICIT.json </p>
+</article>
+
+
+<h2><code>root</code> context</h2>
+Should be from the root context. (this page has no front matter, so `page` falls back on the root context)
+<!-- test/fixtures/includes/snippet.hbs -->
+<article id="site-context">
+  <div class="title">
+    this title is from the config (root context).
+  </div>
+  <p class="description"> this description is from the config (root context). </p>
+</article>
+
+
+<h2><code>options</code> context</h2>
+Should be from the options. (this page has no front matter, so `this` falls back on the `options` context)
+<!-- test/fixtures/includes/snippet.hbs -->
+<article id="site-context">
+  <div class="title">
+    this title is from the options.
+  </div>
+  <p class="description"> this description is from the options. </p>
+</article>
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+<h2><code>snippet</code> context</h2>
+Should be from the YFM of the include, <code>snippet</code>
+<!-- test/fixtures/includes/snippet-yfm.hbs -->
+<article id="include-yfm">
+  <div class="title">
+    This title is from the INCLUDE YFM (include-yfm.hbs)
+  </div>
+  <p class="description"> This description is from the INCLUDE YFM </p>
+</article>
+
+
+
+<h2><code>snippet (lodash)</code> context</h2>
+Should be resolved from the lodash templates in the YFM of the include, <code>snippet</code>
+<!-- test/fixtures/includes/snippet-yfm-lodash.hbs -->
+<article id="include-yfm-lodash">
+  <div class="title">
+    Assemble => Assemble
+  </div>
+  <p class="description"> Static site generator for Grunt.js and Yeoman. Assemble makes it dead simple to build modular sites, blogs, gh-pages, components and documentation from reusable templates and data.
+ </p>
+  <p class="description"> Static site generator for Grunt.js and Yeoman. Assemble makes it dead simple to build modular sites, blogs, gh-pages, components and documentation from reusable templates and data.
+ </p>
+</article>
+
+Note that the YAML front matter is "borrowing" data from the <code>site</code> object, which is defined in the Grunt config.
+
+So in this example, <code>{{title}}</code> will yield the same result as <code>{{site.title}}</code>, and <code>{{description}}</code> will
+yield the same result as <code>{{site.description}}</code>
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+<h2><code>include yfm</code> context</h2>
+Should be from the YFM of the include
+<!-- test/fixtures/includes/snippet-yfm.hbs -->
+<article id="include-yfm">
+  <div class="title">
+    This title is from the INCLUDE YFM (include-yfm.hbs)
+  </div>
+  <p class="description"> This description is from the INCLUDE YFM </p>
+</article>
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+<h2>data file context</h2>
+Should be from the <code>bar.json</code> data file
+
+
+  <!-- test/fixtures/includes/snippet.hbs -->
+<article id="site-context">
+  <div class="title">
+    This title is from BAR.json
+  </div>
+  <p class="description"> This description is from BAR.json </p>
+</article>
+
+
+
+<h2>parent context</h2>
+Should be from the options.
+
+
+  <!-- test/fixtures/includes/snippet.hbs -->
+<article id="site-context">
+  <div class="title">
+    this title is from the options.
+  </div>
+  <p class="description"> this description is from the options. </p>
+</article>
+
+
+
+<h2>parent context</h2>
+Should be from the root context.
+
+
+  <!-- test/fixtures/includes/snippet.hbs -->
+<article id="site-context">
+  <div class="title">
+    this title is from the config (root context).
+  </div>
+  <p class="description"> this description is from the config (root context). </p>
+</article>
+

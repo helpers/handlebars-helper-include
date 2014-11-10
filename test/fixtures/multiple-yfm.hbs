@@ -1,0 +1,111 @@
+---
+title: This title is from PAGE YFM (multiple.hbs)
+description: This description is from PAGE YFM (multiple.hbs)
+lead: This lead is from PAGE YFM (multiple.hbs)
+quux: This property is from PAGE YFM (multiple.hbs)
+wrapper:
+  title: WRAPPER YFM
+  description: WRAPPER DESCRIPTION
+---
+<h2><code>explicit</code> context</h2>
+Should be from <code>explicit.json</code>
+{{include 'snippet' explicit}}
+
+
+<h2><code>page</code> context</h2>
+Should be from the YFM of the page
+{{include 'snippet' page}}
+
+
+<h2><code>this</code> context</h2>
+Should be from the YFM of the page
+{{include 'snippet' this}}
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+<h2><code>snippet</code> context</h2>
+Should be from the YFM of the include, <code>snippet</code>
+{{include 'snippet-yfm'}}
+
+
+
+<h2><code>snippet (lodash)</code> context</h2>
+Should be resolved from the lodash templates in the YFM of the include, <code>snippet</code>
+{{include 'snippet-yfm-lodash'}}
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+<h2><code>this</code> context</h2>
+Should be from the YFM of the page
+{{include 'snippet-yfm' this}}
+
+
+<h2><code>wrapper</code> context</h2>
+Should be from the wrapper
+{{#wrapper}}
+  {{include 'snippet-yfm' this}}
+{{/wrapper}}
+
+<h2><code>wrapper</code> context</h2>
+Should be from the wrapper
+
+{{include 'snippet-yfm' wrapper}}
+
+
+<h2><code>page</code> context</h2>
+Should be from the YFM of the page
+{{include 'snippet-yfm' page}}
+
+
+<h2><code>include yfm</code> context</h2>
+Should be from the YFM of the include
+{{include 'snippet-yfm' data}}
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+<h2>data file context</h2>
+Should be from the <code>bar.json</code> data file
+
+{{#bar}}
+  {{include 'snippet' this}}
+{{/bar}}
+
+
+<h2>parent context</h2>
+Should be from the page.
+
+{{#bar}}
+  {{include 'snippet' ../this}}
+{{/bar}}
+
+
+<h2>parent context</h2>
+Should be from the page.
+
+{{#bar}}
+  {{include 'snippet' ../page}}
+{{/bar}}
+
+
+<h2>nested includes</h2>
+
+{{include 'nested' data}}
+
+<h2>nested includes with YFM</h2>
+
+{{include 'nested-yfm'}}
