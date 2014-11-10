@@ -1,9 +1,9 @@
-# include [![NPM version](https://badge.fury.io/js/include.svg)](http://badge.fury.io/js/include)
+# handlebars-helper-include [![NPM version](https://badge.fury.io/js/handlebars-helper-include.svg)](http://badge.fury.io/js/handlebars-helper-include)
 
 > Handlebars helper for using includes.
 
 ## Install
-Use [npm](npmjs.org) to install the package: `npm i include`.
+Use [npm](npmjs.org) to install the package: `npm i handlebars-helper-include`.
 
 ## Register the helper
 
@@ -13,9 +13,9 @@ Register the helper in the `assemble` task in your project's Gruntfile to begin 
 grunt.initConfig({
   assemble: {
     options: {
-      // the 'include' npm module must also be listed in
+      // the 'handlebars-helper-include' npm module must also be listed in
       // devDependencies for assemble to automatically resolve the helper
-      helpers: ['include', 'foo/*.js']
+      helpers: ['handlebars-helper-include', 'foo/*.js']
     },
     files: {
       '_gh_pages/': ['templates/*.hbs']
@@ -64,14 +64,14 @@ Globbing patterns may also be used:
 ```
 
 ## Contributing
-Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/jonschlinkert/include/issues)
+Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/helpers/handlebars-helper-include/issues)
 
 ## Author
 
 **Jon Schlinkert**
  
-+ [github/jonschlinkert](https://github.com/jonschlinkert)
-+ [twitter/jonschlinkert](http://twitter.com/jonschlinkert) 
++ [github/helpers](https://github.com/helpers)
++ [twitter/helpers](http://twitter.com/helpers) 
 
 ## License
 Copyright (c) 2014 Jon Schlinkert, contributors.  
