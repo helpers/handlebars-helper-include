@@ -1,8 +1,7 @@
 /*
- * grunt-readme
- * https://github.com/assemble/grunt-readme
+ * helper-include <https://github.com/helpers/helper-include>
  *
- * Copyright (c) 2013 Jon Schlinkert, contributors
+ * Copyright (c) 2014 Jon Schlinkert, contributors
  * Licensed under the MIT license.
  */
 
@@ -13,7 +12,7 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg : grunt.file.readJSON('package.json'),
-    site: grunt.file.readYAML('_config.yml'),
+    site: grunt.file.readYAML('.assemblerc.yml'),
 
     jshint: {
       all: ['Gruntfile.js', 'test/*.js', '*.js'],
@@ -34,8 +33,7 @@ module.exports = function(grunt) {
         // Ensure that assets path calculates properly
         assets: 'test/assets',
         data: ['test/fixtures/data/*.json'],
-        partials: ['test/fixtures/includes/*.hbs'],
-        layout: 'test/fixtures/layouts/default.hbs',
+        includes: ['test/fixtures/includes/*.hbs'],
         helpers: ['index.js'],
       },
       site_data: {
@@ -62,28 +60,6 @@ module.exports = function(grunt) {
       }
     },
 
-    // Pull down a list of repos from Github.
-    repos: {
-      helpers: {
-        options: {
-          username: 'helpers',
-          include: ['handlebars-helper', 'partial'],
-          exclude: ['examples']
-        },
-        files: {
-          'docs/helpers.json': ['repos?page=1&per_page=100']
-        }
-      }
-    },
-
-    // Use helpers.json for context to generate list
-    // of related repos
-    readme: {
-      options: {
-        metadata: ['docs/helpers.json']
-      }
-    },
-
     clean: {
       test: ['test/actual/**/*.html']
     }
@@ -92,15 +68,9 @@ module.exports = function(grunt) {
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-readme');
-  grunt.loadNpmTasks('grunt-repos');
-  grunt.loadNpmTasks('grunt-sync-pkg');
   grunt.loadNpmTasks('assemble');
 
-  // Docs
-  grunt.registerTask('docs', ['repos', 'readme', 'sync']);
-
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint', 'clean', 'assemble', 'docs']);
+  grunt.registerTask('default', ['jshint', 'clean', 'assemble']);
 
 };
